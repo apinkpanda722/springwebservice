@@ -1,5 +1,6 @@
 package com.panda.apink.springboot.web;
 
+import com.panda.apink.springboot.config.auth.LoginUser;
 import com.panda.apink.springboot.config.auth.dto.SessionUser;
 import com.panda.apink.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model, SessionUser user) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
 
