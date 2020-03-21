@@ -1,11 +1,9 @@
 package com.panda.apink.springboot.web;
 
-import com.panda.apink.springboot.config.auth.dto.LoginUser;
 import com.panda.apink.springboot.config.auth.dto.SessionUser;
 import com.panda.apink.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import com.panda.apink.springboot.service.PostsService;
-import org.h2.engine.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
@@ -21,7 +19,7 @@ public class IndexController {
     private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model, @LoginUser SessionUser user) {
+    public String index(Model model, SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
 

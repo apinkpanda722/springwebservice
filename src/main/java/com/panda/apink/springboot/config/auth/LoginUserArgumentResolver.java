@@ -1,6 +1,5 @@
 package com.panda.apink.springboot.config.auth;
 
-import com.panda.apink.springboot.config.auth.dto.LoginUser;
 import com.panda.apink.springboot.config.auth.dto.SessionUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.MethodParameter;
