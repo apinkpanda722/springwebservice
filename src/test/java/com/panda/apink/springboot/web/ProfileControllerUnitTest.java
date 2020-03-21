@@ -41,7 +41,6 @@ public class ProfileControllerUnitTest {
 
         //then
         assertThat(profile).isEqualTo(expectedProfile);
-
     }
 
     @Test
@@ -50,7 +49,6 @@ public class ProfileControllerUnitTest {
         String expectedProfile = "default";
         MockEnvironment env = new MockEnvironment();
         ProfileController controller = new ProfileController(env);
-
 
         //when
         String profile = controller.profile();
