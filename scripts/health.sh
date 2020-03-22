@@ -6,14 +6,14 @@ source ${ABSDIR}/switch.sh
 IDLE_PORT=$(find_idle_port)
 echo "> Health Check Start!"
 echo "> IDLE_PORT: $IDLE_PORT"
-echo "> curl -s http://localhost:$IDLE_PORT/login "
+echo "> curl -s http://localhost:$IDLE_PORT "
 sleep 10
 for RETRY_COUNT in {1..10}
 do
-  RESPONSE=$(curl -s http://localhost:${IDLE_PORT}/login)
-  UP_COUNT=$(echo ${RESPONSE} | grep 'Login with OAuth 2.0' | wc -l)
+  RESPONSE=$(curl -s http://localhost:${IDLE_PORT})
+  UP_COUNT=$(echo ${RESPONSE} | grep '스프링 부트로 시작하는 웹 서비스 Ver.2' | wc -l)
   if [ ${UP_COUNT} -ge 1 ]
-  then # $up_count >= 1 ("Login with OAuth 2.0" 문자열이 있는지 검증)
+  then # $up_count >= 1 ("스프링 부트로 시작하는 웹 서비스 Ver.2" 문자열이 있는지 검증)
       echo "> Health check 성공"
       switch_proxy
       break
