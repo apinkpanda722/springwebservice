@@ -11,9 +11,9 @@ sleep 10
 for RETRY_COUNT in {1..10}
 do
   RESPONSE=$(curl -s http://localhost:${IDLE_PORT}/login)
-  UP_COUNT=$(echo ${RESPONSE} | grep 'with' | wc -l)
+  UP_COUNT=$(echo ${RESPONSE} | grep 'Login with OAuth 2.0' | wc -l)
   if [ ${UP_COUNT} -ge 1 ]
-  then # $up_count >= 1 ("with" 문자열이 있는지 검증)
+  then # $up_count >= 1 ("Login with OAuth 2.0" 문자열이 있는지 검증)
       echo "> Health check 성공"
       switch_proxy
       break
